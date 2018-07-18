@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>A beautiful way to be inspired</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="writing-content">
+  <form>
+    <textarea id="writer"></textarea>
+    <br />
+    
+  </form>
+    <div id="written-content"></div>
+  </div>
+  <button id="get-writing" onClick="showContent()">Show</button>
+
+<script>
+
+  document.getElementById("writer").addEventListener('keydown', function(event){
+    typeStop(event);
+  }); 
+  
+  var firstThought;
+  var keysDepressed = [];
+  var writingMode = true;
+  var initialState = true;
+    
+  function typeStop(event){
+   keysDepressed.push(event.key);
+   var outputVal = keysDepressed.slice(-2)[0] + keysDepressed.slice(-1)[0];
+   console.log(outputVal);
+   
+   if(initialState == true) {
+   firstThought = document.getElementById("writer").value;
+   }
+   
+   if(event.key === "Enter") {
+     saveContent();
+   }
+   switch(outputVal) {
+     case ". ":
+           saveContent();
+     break;
+     case "? ":
+           saveContent();
+     break;
+     case "! ":
+           saveContent();
+     break;
+     case "Enter":
+          saveContent();
+     break;
+     
+   }
+/*
+   if(firstKey === 46 && secondKey === 32) {
+      saveContent();
+    } else if(firstKey === 63 && secondKey === 32) {
+      saveContent();
+    } else if(firstKey === 33 && secondKey === 32) {
+      saveContent();
+    } else if(secondKey === 13) {
+      saveContent();
+    } */
+    //console.log(keysDepressed);
+  } 
+  
+  function saveContent() {
+  
+  if(initialState != true) {
+    firstThought = firstThought + document.getElementById("writer").value;    
+    keysDepressed = [];
+  } 
+  document.getElementById("writer").value = "";
+  initialState = false;
+  }
+  
+  function showContent() {
+    if(writingMode == true) {
+    document.getElementById("writer").style.display = "none";
+    document.getElementById("written-content").style.display = "block";
+    document.getElementById("written-content").innerHTML = firstThought;
+    document.getElementById("get-writing").innerHTML = "Write";
+    writingMode = false;
+  } else {
+    document.getElementById("writer").style.display = "block";
+    document.getElementById("written-content").style.display = "none";
+    document.getElementById("get-writing").innerHTML = "Show";
+    writingMode = true;
+  }
+}
+
+</script>
+
+
+</body>
+
+</html>

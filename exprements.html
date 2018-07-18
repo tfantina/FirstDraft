@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Blurtest</title>
+  <style>
+    body {
+      color: rgb(32, 230, 158);
+      background-color: rgb(57, 0, 85);
+    }
+
+
+    #written-blur {
+      filter: blur(2.9px);
+      position: relative;
+      max-width: 600px;
+      display: inline;
+      font-size: 15px;
+      font-family: helvetica;
+      outline: 0px;
+
+
+
+    }
+
+    #writer {
+      position: relative;
+      min-width: 60px;
+      height: 45px;
+      padding: 0px;
+      margin: 0px;
+      display: inline;
+      font-size: 15px;
+      font-family: helvetica;
+      outline: 0px;
+
+
+
+    }
+
+    .container {
+
+      background-color:#29003E;
+      display:inline-block;
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        height: 90%;
+        width: 600px;
+        overflow: scroll;
+      }
+
+      .lower-third {
+        display: flex;
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      button {
+        color: rgb(57, 0, 85);
+        background-color:rgb(32, 230, 158);
+        border-radius: 5px;
+        border: 0px;
+        font-size: 20px;
+        padding: 10px 20px 10px 20px;
+        margin-bottom: 10px;
+        outline: 0px;
+        margin: 20px;
+      }
+      button:hover {
+        background-color:rgb(120, 251, 204);
+        outline: 0px;
+      }
+
+
+
+    }
+
+  </style>
+  <script scr="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
+</head>
+<body>
+
+  <div class="container" id="container">
+<div id="written-blur"></div>
+<div id="writer" contenteditable="true" autocorrect="off" spellcheck="false"></div>
+
+
+</div>
+<div class="lower-third">
+<button onClick="showContent()" id="toggle-writer">Review Mode</button>
+<button onClick="fullScreen()">Full Screen</button>
+<button onClick="save()">Save As .txt</button>
+</div>
+</body>
+
+
+
+
+
+
+
+<script>
+
+var initialState = true;
+var writtingContent;
+var  writingMode = true;
+let writerId = document.getElementById("writer");
+let blurId = document.getElementById("written-blur");
+//Starts focus in the "writer id" focus can be regained by clicking in the "content id"
+document.addEventListener("DOMContentLoaded", function() {
+  writerId.focus()
+});
+document.getElementById("container").addEventListener("click", function() {
+  writerId.focus()});
+
+
+//Copy and paste from other sources as plin text
+writerId.addEventListener("paste", function(e) {
+  e.preventDefault();
+  var text = e.clipboardData.getData("text/plain");
+  document.execCommand("insertHTML", false, text);
+})
+
+
+//Event listner for keystrokes if the "writer" gets larger than 570 or the user
+//presses enter a new line is started.
+writerId.addEventListener('keydown', function(event){
+
+
+  if(event.key === "Enter" || document.getElementById("writer").offsetWidth >= "570") {
+    if(initialState === true) {
+      writtingContent = writerId.innerHTML;
+      blurId.innerHTML = writtingContent ;
+      writerId.innerHTML = "";
+      initialState = false;
+    } else {
+        writtingContent = writtingContent + writerId.innerHTML;
+        blurId.innerHTML = writtingContent ;
+        writerId.innerHTML = "";
+    }
+
+ }
+
+});
+
+//display written content for review
+
+function showContent() {
+  if(writingMode == true) {
+    if (initialState === true) {
+      writtingContent = writerId.innerHTML;
+    } else {
+  writtingContent = writtingContent + writerId.innerHTML;
+  }
+  blurId.innerHTML = writtingContent ;
+  writerId.style.display = "none";
+  blurId.style.filter = "blur(0px)";
+  blurId.contentEditable = "true" ;
+  document.getElementById("toggle-writer").innerHTML = "Compose Mode";
+  writingMode = false;
+} else {
+  writerId.style.display = "inline";
+  blurId.style.filter = "blur(2.9px)";
+  document.getElementById("toggle-writer").innerHTML = "Review Mode";
+  blurId.contentEditable = "false" ;
+  writingMode = true;
+  writtingContent = blurId.innerHTML;
+  blurId.innerHTML = writtingContent;
+}
+}
+
+
+function fullScreen() {
+  if(document.getElementById("container").webkitRequestFullscreen) {
+    document.getElementById("container").webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+  } else {
+    document.getElementById("container").mozRequestFullScreen();
+  }
+
+
+}
+</script>
+</html>
