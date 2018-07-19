@@ -82,7 +82,9 @@
 
   </style>
   <script scr="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
-</head>
+  <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
+
+  </head>
 <body>
 
   <div class="container" id="container">
@@ -181,8 +183,12 @@ function fullScreen() {
   } else {
     document.getElementById("container").mozRequestFullScreen();
   }
-
-
 }
+
+function save() {
+  let filename = "firstdraft";
+  let blob = new Blob([writtingContent], { type: "text.plain;charset=utf-8"});
+  saveAs(blob, filename+".md");
+};
 </script>
 </html>
