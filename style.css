@@ -1,376 +1,111 @@
-/* The League of Nations stylesheet by Travis Fantina
-This is is the modified League of Nations style adapted for Jimdo
-For the original please see: http://www.league-imports.com/styles/mainstyle.css
-Created by Travis Fantina spring 2015
-Modified for Jimdo August 2015
-
-This code, except for the Jimdo inserts is the property of Travis Fantina,
-for reference on what code is original to the design please see the above
-linked stylesheet.
-
-Further modified March 2016 to make the site more visually appealing for ecommerce.
-
- © 2016 Travis Fantina (with exceptions)
------------------------------------------------ */
-
-
-/* Layout
------------------------------------------------ */
-
 body {
-    background-color: hsl(200, 0%, 90%);
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font: 11px/140% Verdana, Geneva, Arial, Helvetica, sans-serif;
-}
-#wrapper
-{
-    margin:0 auto;
-    width: 90%;
-    max-width: 2000px;
-    min-width: 450px;
-    background-color: hsl(0, 0%, 100%);
-    border-left-width: 2px;
-    border-right-width: 2px;
-    border-bottom-width: 0px;
-    border-top-width:0px;
-    border-left-style: solid;
-    border-right-style:solid;
-    border-color: hsl(0, 0%, 60%);
-    border-style:solid;
-
-}
-#header
-{
-    padding:0px;
-    height: 250px;
-    width:100%;
-    z-index:25;
-}
-
-#topimage {
-	width: 100%;
-	height: 200px;
-	margin: 0 auto;
-        z-index:25;
-        opacity: .4;
-}
-#logo {
-        display:inline-block;
-	opacity:.9;
-	margin-top: -220px;
-	filter: alpha(opacity=80);
-	margin-left: 5px;
-	float: left;
-	margin-bottom: 0;
-	z-index:10;
-	height: 250px;
-
-}
-
-#logo,  #navbarwrap {
- 	position: absolute;
-}
-
-#navbar{
-        position:relative;
-	display:inline-block;
-        padding-right: 8px;
-	height: 70px;
-	width: 100%;
-	z-index: 5;
-	overflow:hidden;
-}
-
-/* header links */
-
-#navbox {
-       background-color: hsl(200, 28%, 65%);
-       position: relative;
-       width: 100%;
-       margin-top: -60px;
-
-
+  color: rgb(32, 230, 158);
+  background-color: rgb(57, 0, 85);
 }
 
 
-#navbarwrap {
-       margin-left: 340px;
-       display:inline-block;
-       height:60px;
-       position: relative;
-       z-index:3;
-
-}
-
-.nav {
-       opacity: 1;
-       transition: opacity .25s ease-in-out;
-       -moz-transition: opacity .25s ease-in-out;
-       -webkit-transition: opacity .25s ease-in-out;
-       padding-left: 20px;
-}
-
-.nav:hover {
-opacity:.5
-}
-
-ul#navbar {
-       display:inline;
-}
-
-ul#navbar li, #navbar a{
-       font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-       font-size: 23px;
-       font-weight: bold;
-       margin-top: 15px;
-       font-style: normal;
-       text-decoration: none;
-       color: hsl(100, 100%, 100%);
-       display:inline;
-       transition: opacity .25s ease-in-out;
-       -moz-transition: opacity .25s ease-in-out;
-       -webkit-transition: opacity .25s ease-in-out;
-       padding-left: 15px;
-
-
-}
-
-
-ul#navbar li:hover {
-  opacity:.5
-}
-
-
-ul {
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-}
-li {
- float: left;
-}
-
-#content
-{
-        position: relative;
-        margin-left:auto;
-        margin-right:auto;
-	width: 95%;
-	padding: 4px;
-}
-
-#content-box {
-  width: 95%;
-
-background-color: hsl(200, 12%, 60%);
-}
-
-.cc-m-hgrid-column {
-      float: right;
-}
-
-#footer
-{
-   background-color: hsl(200, 15%, 54%);
-   position: relative;
-   height: 40px;
-   bottom: 0px;
-}
-#footer img {
-   padding: 5px;
-   height: 30px;
-   width: 30px;
-}
-
-ul#footer li {
-   display: inline;
-}
-
-#copyright {
-   right: 0px;
-   padding: 8px;
-   position: absolute;
-   font-size: 10px;
-
-}
-
-/* classes & ids for the 'catalogue' page */
-
-.product {
+#written-blur {
+  filter: blur(2.9px);
   position: relative;
-  padding: 5px;
-  min-height: 220px;
-  min-width: 320px;
-  max-height: 300px;
-  max-width: 420px;
-  border-color: hsl(0, 0%, 80%);
-  border-style: solid;
-  border-width: 1px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-.product img {
-  min-height: 200px;
-  min-width: 300px;
-  max-height: 270px;
-  max-width: 400px;
-}
-#wrapping {
-min-width: 440px;
-max-width: 800px;
-margin-left: auto;
-margin-right: auto;
+  max-width: 600px;
+  display: inline;
+  font-size: 15px;
+  font-family: helvetica;
+  outline: 0px;
+
+
+
 }
 
-#columnLeft{
-overflow: auto;
-float: left;
-width: 49%;
-min-width: 220px;
-left: 0px;
-top: 140px;
-bottom: 0px;
+#writer {
+  position: relative;
+  min-width: 60px;
+  height: 45px;
+  padding: 0px;
+  margin: 0px;
+  display: inline;
+  font-size: 15px;
+  font-family: helvetica;
+  outline: 0px;
+
+
 
 }
-#columnRight{
-overflow: auto;
-float: right;
-min-width: 220px;
-width: 49%;
-right: 0px;
-top: 140px;
-bottom: 0px;
-}
 
+.container {
 
-/* random styles for jimdo */
+  background-color:#29003E;
+  display:inline-block;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    height: 90%;
+    width: 600px;
+    overflow: scroll;
+  }
+  #tool-box {
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+  }
+  #tools {
+    display: none;
+    position: relative;
+  }
 
-#cc-m-hgrid-column {
-margin-top: 130px;
-}
+  #tools-animate {
+    position: relative;
+    animation-name: dropdown;
+    animation-duration: 1.2s;
+    display: flex;
+    justify-content: center;
 
-#cc-checkout-wrapper {
-margin-top: 130px;
-}
+  }
 
-#cc-m-header-13115946930 {
-margin-top:90px;
-}
+  #tools-out {
+    position: relative;
+    animation-name: pullup;
+    animation-duration: 2s;
+    display: flex;
+    justify-content: center;
+  }
 
-#cc-shop-deliveryinfopage {
-margin-top:99px;
-}
+  @keyframes dropdown {
+    0% {top: -83px;}
+    100% {top: 0px;}
+  }
 
-.j-cart {
-  top: 190px;
-  right: 70px;
-  height: 60px;
-}
-.is-empty {
-  top: 190px;
-  right: 70px;
-  height: 60px;
-}
+  @keyframes pullup {
+    0% {top: 0px;}
+    100% {top: -83px;}
+  }
 
+  .lower-third {
+    display: flex;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    justify-content: center;
+  }
 
-/*  Style Stuff
------------------------------------------------ */
+  button {
+    color: rgb(57, 0, 85);
+    background-color:rgb(32, 230, 158);
+    border-radius: 5px;
+    border: 0px;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 10px;
+    outline: 0px;
+    margin: 20px;
+  }
+  button:hover {
+    background-color:rgb(120, 251, 204);
+    outline: 0px;
+  }
 
-a:link, a:visited
-{
-    text-decoration: none;
-    color:#EC4413;
-}
-a:active { 	text-decoration: none; }
-a:hover { text-decoration:none; }
-
-
-h1 { font:bold 18px/140% "Trebuchet MS", Verdana, sans-serif; }
-h2 { font:bold 14px/140% "Trebuchet MS", Verdana, sans-serif; }
-
-p {	font: 11px/140% Verdana, Geneva, Arial, Helvetica, sans-serif;}
-
-
-
-img.navbarwrap {
-     display: inline-block;
-}
-
-
-#h1{
-    padding:0;
-    font-family:"Helvetica","Lucida Sans Unicode",Tahoma,Verdana,Arial,Helvetica,sans-serif;
-    font-size:30px;
-    font-weight:normal;
-    text-decoration:none;
-    line-height:1.3em;
-    color:#666666;
-    text-align:right;
-}
-
-ul.mainNav1,
-ul.mainNav2
-{
-    margin:0;
-    padding: 0;
-}
-
-
-ul.mainNav1 li,
-ul.mainNav2 li
-{
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
-
-
-ul.mainNav1 li a,
-ul.mainNav2 li a
-{
-    font:normal 11px/140% Verdana, Geneva, Arial, Helvetica, sans-serif;
-    text-decoration: none;
-    display: block;
-    color:#333;
-    border-bottom:1px solid #CCC;
-}
-
-
-ul.mainNav1 li a { padding:4px 4px 4px 4px; }
-ul.mainNav2 li a { padding:4px 4px 4px 14px; }
-ul.mainNav3 li a { padding:4px 4px 4px 24px; }
-
-
-ul.mainNav1 a:hover
-{
-    background:#EEE;
-    color:black;
-}
-
-ul.mainNav1 a.current { font-weight:bold; }
-
-
-
-
-/*  This is junk that Jimdo includes it's annoying but required
-so I set it to be invisable haha
------------------------------------------------ */
-#navigation
-{
-    position:relative;
-    width:0px;
-    height:0px;
-    padding:0px;
-    z-index: -10;
-
-}
-#sidebar
-{
-    padding-top:0px;
-    width:0px;
-    height:0px;
 
 
 }
