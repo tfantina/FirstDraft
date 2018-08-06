@@ -25,16 +25,24 @@ header {
   font-weight: 900;
   font-size: 14px;
   grid-area: h;
+  display: grid;
+  grid-template-columns: 50px auto;
+  grid-template-rows: 4em auto;
 
+  grid-template-areas:
+  "l t"
+  "l s";
 }
 
 header > h1 {
+  grid-area: t;
   font-size: 4em;
   margin-top: 5px;
   margin-bottom: -2px;
 }
 
 header > h2 {
+  grid-area: s;
   font-weight: 100;
   font-size: 1.2em;
   font-kerning: normal;
@@ -63,6 +71,10 @@ footer a:link {
 
 footer a:hover {
   color: rgb(120, 251, 204);
+}
+
+footer a:visited {
+    color: rgb(32, 230, 158);
 }
 
 #footer-txt {
@@ -110,6 +122,14 @@ footer a:hover {
   display: grid;
   grid-template-rows: 10px auto 85px;
   grid-template-columns: repeat(12, 1fr);
+}
+
+.logo {
+  display: inline-block;
+  grid-area: l;
+}
+.logo > img {
+  height: 4em;
 }
 
 .container {
