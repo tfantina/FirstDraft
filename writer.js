@@ -24,9 +24,11 @@ writerId.addEventListener("paste", function(e) {
 //Event listner for keystrokes if the "writer" gets larger than 570 or the user
 //presses enter a new line is started.
 writerId.addEventListener('keydown', function(event){
-
+  event.preventDefault();
 
   if(event.key === "Enter" || document.getElementById("writer").offsetWidth >= "570") {
+
+    console.log("enter");
     if(initialState === true) {
       writtingContent = writerId.innerHTML;
       blurId.innerHTML = writtingContent ;
