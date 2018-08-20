@@ -84,34 +84,6 @@ footer a:visited {
 }
 
 
-#written-blur {
-  filter: blur(2.9px);
-  position: relative;
-  max-width: 600px;
-  display: inline;
-  font-size: 15px;
-  font-family: helvetica;
-  outline: 0px;
-
-
-
-}
-
-#writer {
-  position: relative;
-  min-width: 60px;
-  height: 45px;
-  padding: 0px;
-  margin: 0px;
-  display: inline;
-  font-size: 15px;
-  font-family: helvetica;
-  outline: 0px;
-
-
-
-}
-
 .body-content {
  width: 45%;
  font:
@@ -144,53 +116,6 @@ footer a:visited {
     overflow: scroll;
     grid-column: 1/span 12;
     grid-row: 2;
-
-  }
-  #tool-box {
-    position: absolute;
-    width: 100%;
-    justify-content: center;
-  }
-  #tools {
-    display: none;
-    position: relative;
-  }
-
-  #tools-animate {
-    position: relative;
-    animation-name: dropdown;
-    animation-duration: 1.2s;
-    display: flex;
-    justify-content: center;
-
-  }
-
-  #tools-out {
-    position: relative;
-    animation-name: pullup;
-    animation-duration: 2s;
-    display: flex;
-    justify-content: center;
-  }
-
-  @keyframes dropdown {
-    0% {top: -83px;}
-    100% {top: 0px;}
-  }
-
-  @keyframes pullup {
-    0% {top: 0px;}
-    100% {top: -83px;}
-  }
-
-  .lower-third {
-    display: flex;
-    grid-row: 3;
-    grid-column: 1 / span 12;
-    bottom: 0px;
-    width: 100%;
-    justify-content: center;
-    margin: 15px;
 
   }
 
