@@ -1,0 +1,149 @@
+:root {
+  --filter-white: #e8e4d0;
+  --charcoal-brown: #1c1c1c;
+  --white: #ffffff;
+}
+html, body {
+  color: var(--charcoal-brown);
+  background-color: var(--filter-white);
+  height: 100%;
+  padding: 5px;
+  margin: 0px;
+  font-family: 'Roboto', helvetica, sans-serif;
+
+}
+
+.body-area {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 100px auto 50px;
+  grid-template-areas:
+    "h h h h h h h h h h h h"
+    "c c c c c c c c c c c c"
+    "f f f f f f f f f f f f";
+
+}
+
+header {
+  font-family: 'Roboto', helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  grid-area: h;
+  display: grid;
+  grid-template-columns: 50px auto;
+  grid-template-rows: 4em auto;
+
+  grid-template-areas:
+  "l t"
+  "l s";
+}
+
+header > h1 {
+  grid-area: t;
+  font-size: 4em;
+  margin-top: 5px;
+  margin-bottom: -2px;
+}
+
+header > h2 {
+  grid-area: s;
+  font-weight: 100;
+  font-size: 1.2em;
+  font-kerning: normal;
+}
+
+content {
+  grid-area: c;
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  grid-area: f;
+  display: flex;
+  justify-content: center;
+  font-family: 'Roboto', helvetica, sans-serif;
+}
+
+footer a:link {
+  text-decoration: none;
+  font-size: 1em;
+  color: rgb(32, 230, 158);
+  display: flex;
+  justify-content: right;
+}
+
+footer a:hover {
+  color: rgb(120, 251, 204);
+}
+
+footer a:visited {
+    color: rgb(32, 230, 158);
+}
+
+#footer-txt {
+  font-size: .7em;
+  bottom: 0px;
+  position: absolute;
+}
+
+
+.body-content {
+ width: 45%;
+ font:
+}
+
+.layout {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 10px auto 85px;
+  grid-template-columns: repeat(12, 1fr);
+  transition: 2s;
+}
+
+.logo {
+  display: inline-block;
+  grid-area: l;
+}
+.logo > img {
+  height: 4em;
+}
+
+.container {
+
+    background-color: var(--white);
+    margin: auto;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    height: 100%;
+    width: 600px;
+    overflow: scroll;
+    grid-column: 1/span 12;
+    grid-row: 2;
+    transition: 2s;
+    border-radius: 3px;
+
+  }
+
+  button {
+    color: var(--filter-white);
+    background-color:var(--charcoal-brown);
+    border-radius: 5px;
+    border: 0px;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    margin: 0px 10px 10px 0px;
+    outline: 0px;
+
+    height: 45px;
+  }
+  button:hover {
+    background-color:rgb(120, 251, 204);
+    outline: 0px;
+  }
+
+
+
+}

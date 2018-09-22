@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>FirstDraft | Compose</title>
+    <link rel="stylesheet" href="styles/teststyle.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+<body>
+  <div class="container">
+    <div id="tools"><button onClick="formatTxt('bold')">b</button></div>
+    <div id="writer" contenteditable="true"></div>
+  </div>
+  <script>
+  function formatTxt(formatType){
+
+      document.execCommand(formatType);
+      document.getElementById("writer").focus();
+
+    }
+
+  </script>
+
+
+</body>
+
+</html>

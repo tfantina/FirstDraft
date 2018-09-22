@@ -7,25 +7,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/writer.css">
-  
+
 <!--  <script scr="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
   <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
   <script src="https://unpkg.com/turndown/dist/turndown.js"></script> -->
   </head>
 <body>
-  <div class="layout">
-    <div id="tools">
+  <div class="layout" id="page-layout">
+    <div id="tools" contenteditable="false">
+      <button onClick="formatting('bold')"><strong>b</strong></button>
+      <button onClick="formatting('italic')"><i>i</i></button>
+      <button onClick="formatting('underline')"><u>u</u></button>
+
       <button onClick="save()">Save As .md</button>
       <button onClick="savehtml()">Save As .html</button>
-      <button onClick="boldText()"><strong>b</strong></button>
+
+
     </div>
 
     <div class="container" id="container">
       <div id="written-blur"></div>
-      <div id="writer" contenteditable autocorrect="off" spellcheck="false"></div>
+      <div id="writer" contenteditable="true" autocorrect="off" spellcheck="false"></div>
     </div>
 
-    <div class="lower-third">
+    <div class="lower-third" contenteditable="false">
       <button onClick="fullScreen()">Full Screen</button>
       <button onClick="showContent()" id="toggle-writer">Review Mode</button>
     </div>
