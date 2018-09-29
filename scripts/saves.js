@@ -6,8 +6,13 @@ function save() {
   saveAs(blob, filename+".md");
 };
 
-function savehtml() {
+function saveHtml(content) {
   let filename = "firstdraft";
-  let blob = new Blob([writtingContent], { type: "text.html;charset=utf-8"});
-  saveAs(blob, filename+".rtf");
+  let blob = new Blob([content], { type: "text.html;charset=utf-8"});
+  saveAs(blob, filename+".html");
+}
+
+
+function copy(content) {
+  content.execCommand('Copy');
 }

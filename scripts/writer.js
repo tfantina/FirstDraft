@@ -31,6 +31,7 @@ document.getElementById("container").addEventListener("click", function() {
 
           writtingContent = writerId.innerHTML;
 
+
           if(isSafari) {
             writtingContent = writtingContent + "</br>";
           }

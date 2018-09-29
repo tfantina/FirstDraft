@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/writer.css">
 
-<!--  <script scr="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
+
   <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
-  <script src="https://unpkg.com/turndown/dist/turndown.js"></script> -->
+  <script src="https://unpkg.com/turndown/dist/turndown.js"></script>
   </head>
 <body>
   <div class="layout" id="page-layout">
@@ -19,8 +19,8 @@
       <button onClick="formatting('italic')"><i>i</i></button>
       <button onClick="formatting('underline')"><u>u</u></button>
 
-      <button onClick="save()">Save As .md</button>
-      <button onClick="savehtml()">Save As .html</button>
+      <button onClick="copy(document.getElementById('written-blur').innerHTML)">Copy</button>
+      <button onClick="saveHtml(document.getElementById('written-blur').innerHTML)">Save As .html</button>
 
 
     </div>
