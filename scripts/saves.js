@@ -14,5 +14,22 @@ function saveHtml(content) {
 
 
 function copy(content) {
-  content.execCommand('Copy');
+  let textToCopy = document.createElement('textarea');
+  textToCopy.id = 'temp-text';
+  textToCopy.style.height = 0;
+  document.body.appendChild(textToCopy);
+  textToCopy.value = document.getElementById(content).innerText;
+  let selector = document.querySelector("#temp-text");
+  selector.select();
+  document.execCommand("copy");
+  document.body.removeChild(textToCopy);
+
+
+
 }
+
+
+
+window.onbeforeunload = function(e) {
+  return "Are you sure?" + e;
+};

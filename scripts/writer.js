@@ -27,15 +27,12 @@ document.getElementById("container").addEventListener("click", function() {
     //presses enter a new line is started.
     writerId.addEventListener('keydown', function(event){
       if(event.key === "Enter" || document.getElementById("writer").offsetWidth >= "570") {
+        console.log(document.getElementById("writer").offsetWidth);
         if(initialState === true) {
-
           writtingContent = writerId.innerHTML;
-
-
           if(isSafari) {
             writtingContent = writtingContent + "</br>";
           }
-
           blurId.innerHTML = writtingContent ;
           writerId.innerHTML = "";
           initialState = false;
@@ -47,10 +44,10 @@ document.getElementById("container").addEventListener("click", function() {
             writtingContent = writtingContent + "</br>";
 
           }
-          blurId.innerHTML = writtingContent ;
-          writerId.innerHTML = "";
-        }
 
+        }
+        blurId.innerHTML = writtingContent ;
+        writerId.innerHTML = "";
       }
 
     });
