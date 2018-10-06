@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>FirstDraft | Test Compose</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="index.css">
+  </head>
+<body>
+  <div class="page">
+    <canvas id="prev-lines" width="600px"></canvas>
+    <canvas id="last-line" width="600px"></canvas>
+    <div id="writer" contenteditable="true"></div>
+  </div>
+
+
+
+
+<script>
+let allText;
+let prevLines;
+let lastLine;
+
+const writer = document.getElementById("writer");
+
+writer.addEventListener('keydown', function(event){
+  if(event.key === "Enter") {
+    if(lastLine) {
+      if(prevLines) {
+        prevLines = prevLines + lastLine;
+      } else {
+        prevLines = lastLine;
+      }
+      lastLine = writer.innerHTML;
+    } else {
+      lastLine = writer.innerHTML;
+    }
+    if(allText) {
+      allText = allText + writer.innerHTML;
+    } else {
+      allText = writer.innerHTML;
+    }
+  writer.innerHTML = '';
+  addLastLineToPrevLines(lastLine);
+
+  console.log("prev lines: " + prevLines);
+  console.log("last line: " + lastLine);
+}
+});
+
+
+function addLastLineToPrevLines(text) {
+  let canvas = document.getElementById('prev-lines');
+  let textVal = text;
+  let canvasFont = canvas.getContext("2d");
+  canvasFont.font="18px Roboto";
+  canvasFont.fillText(textVal, 20, 29);
+  canvas.style.display = "inline";
+}
+
+
+</script>
+</body>
+</html>
