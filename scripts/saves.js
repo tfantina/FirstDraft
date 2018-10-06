@@ -24,8 +24,6 @@ function copy(content) {
   document.execCommand("copy");
   document.body.removeChild(textToCopy);
 
-
-
 }
 
 
