@@ -1,21 +1,30 @@
+/*
+allText = everything allText
+prevLines = everything except the last line and the current line
+lastLine = the last full line the user wrote (ended with enter key or end of line)
 
-let initialState = true;
-let writtingContent;
+*/
+
+
+let allText = '';
+let prevLines;
+let lastLine;
 let writingMode = true;
-const writerId = document.getElementById("writer");
-const blurId = document.getElementById("written-blur");
+const page = document.getElementById("writer");
+const blurredPage = document.getElementById("written-blur");
+const lastLineBlurredPage = document.getElementById("last-line");
 //Starts focus in the "writer id" focus can be regained by clicking in the "content id"
 document.addEventListener("DOMContentLoaded", function() {
-  writerId.focus()
+  page.focus()
 });
 
 document.getElementById("container").addEventListener("click", function() {
-  writerId.focus()
+  page.focus()
 });
 
 
     //Copy and paste from other sources as plin text
-    writerId.addEventListener("paste", function(e) {
+    page.addEventListener("paste", function(e) {
       e.preventDefault();
       var text = e.clipboardData.getData("text/plain");
       document.execCommand("insertHTML", false, text);
@@ -25,69 +34,90 @@ document.getElementById("container").addEventListener("click", function() {
 
     //Event listner for keystrokes if the "writer" gets larger than 570 or the user
     //presses enter a new line is started.
-    writerId.addEventListener('keydown', function(event){
+
+
+    page.addEventListener('keydown', function(event){
       if(event.key === "Enter" || document.getElementById("writer").offsetWidth >= "570") {
         console.log(document.getElementById("writer").offsetWidth);
-        if(initialState === true) {
-          writtingContent = writerId.innerHTML;
-          if(isSafari) {
-            writtingContent = writtingContent + "</br>";
-          }
-          blurId.innerHTML = writtingContent ;
-          writerId.innerHTML = "";
-          initialState = false;
 
-        } else {
-          writtingContent = writtingContent + writerId.innerHTML;
-
-          if(isSafari) {
-            writtingContent = writtingContent + "</br>";
-
-          }
-
+        //update all text;
+        allText = allText + page.innerHTML;
+        //put the fresh content into the last line
+        lastLine = page.innerHTML;
+        blurLastLine();
+        if(isSafari) {
+          lastLine = lastLine + "</br>"
+          allText = allText + "</br>"
         }
-        blurId.innerHTML = writtingContent ;
-        writerId.innerHTML = "";
+        //blur the last line
+        lastLineBlurredPage.innerHTML = lastLine.substr(0, lastLine.length - 4);
+
+        //look for previous lines
+        if(prevLines) {
+          blurredPage.innerHTML = prevLines;
+          prevLines = prevLines + lastLine.substr(0, lastLine.length - 4);
+        } else {
+          prevLines = lastLine;
+        }
+
+        console.log("lastLine: " + lastLine);
+        console.log("prevLines: " + prevLines);
+      //  blurredPage.innerHTML = prevLines ;
+      if(writingMode) {
+        page.innerHTML = '';
+      }
       }
 
     });
+
+
+
+    //blur every new line written
+    function blurLastLine() {
+      lastLineBlurredPage.style.webkitFilter = "blur(0px)";
+      let totalBlur = 0;
+      let timer = setInterval(bluring, 10);
+      function bluring() {
+        if(totalBlur >= 2.9) {
+          clearInterval(bluring);
+        } else {
+         totalBlur = totalBlur + .1;
+         lastLineBlurredPage.style.webkitFilter = "blur(" + totalBlur + "px)";
+         console.log(totalBlur);
+        }
+      }
+    }
 
     //display written content for review
 
     function showContent() {
       if(writingMode) {
-        if (initialState) {
-          writtingContent = writerId.innerHTML;
-          initialState = false;
-        } else {
-          writtingContent = writtingContent + writerId.innerHTML;
-        }
-        blurId.innerHTML = writtingContent ;
-        writerId.style.display = "none";
-        blurId.style.filter = "blur(0px)";
-        blurId.contentEditable = "true" ;
-        writerId.contentEditable = "false";
+        writingMode = false;
+        page.innerHTML = allText ;
+        blurredPage.style.display = "none";
+        lastLineBlurredPage.style.display = "none";
         document.getElementById("page-layout").style.gridTemplateRows = "60px auto 85px";
         document.getElementById("toggle-writer").innerHTML = "Compose Mode";
         document.getElementById("tools").setAttribute("id", "tools-animate");
-        document.designMode = "on";
 
-        writingMode = false;
       } else {
-        writerId.style.display = "inline";
-        blurId.style.filter = "blur(2.9px)";
+        page.style.display = "inline";
+        blurredPage.style.display = "inline";
+        lastLineBlurredPage.style.display = "inline";
         document.getElementById("page-layout").style.gridTemplateRows = "10px auto 85px";
         document.getElementById("toggle-writer").innerHTML = "Review Mode";
         document.getElementById("tools-animate").setAttribute("id", "tools-out");
         document.getElementById("tools-out").setAttribute("id", "tools");
-        blurId.contentEditable = "false" ;
-        writerId.contentEditable = "true";
         writingMode = true;
-        blurId.innerHTML = writtingContent;
-        writerId.innerHTML = "";
-        document.designMode = "off";
+        allText = page.innerHTML;
+        prevLines = '';
+        lastLine = '';
+        blurredPage.innerHTML = allText;
+        page.innerHTML = "";
+
       }
     };
+
 
 
     function fullScreen() {

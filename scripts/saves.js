@@ -1,6 +1,6 @@
 function save() {
   let turndownService = new TurndownService();
-  let markdown = turndownService.turndown(writtingContent);
+  let markdown = turndownService.turndown(allText);
   let filename = "firstdraft";
   let blob = new Blob([markdown], { type: "text.plain;charset=utf-8"});
   saveAs(blob, filename+".md");

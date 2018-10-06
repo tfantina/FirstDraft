@@ -1,5 +1,5 @@
 #written-blur {
-  filter: blur(2.9px);
+ filter: blur(2.9px);
   position: relative;
   max-width: 600px;
   display: inline;
@@ -9,6 +9,19 @@
 
 
 
+}
+
+#last-line {
+  position: relative;
+  min-width: 60px;
+  height: 45px;
+  padding: 0px;
+  margin: 0px;
+  display: inline;
+  font-size: 15px;
+  font-family: helvetica;
+  outline: 0px;
+  filter: blur(0px);
 }
 
 #writer {
@@ -22,6 +35,8 @@
   font-family: helvetica;
   outline: 0px;
 }
+
+
 
 
 @media screen and (max-width: 768px) {
