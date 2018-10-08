@@ -28,6 +28,6 @@ function copy(content) {
 
 
 
-window.onbeforeunload = function(e) {
+/* window.onbeforeunload = function(e) {
   return "Are you sure?" + e;
-};
+}; */

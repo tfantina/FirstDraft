@@ -44,19 +44,21 @@ document.getElementById("container").addEventListener("click", function() {
         allText = allText + page.innerHTML;
         //put the fresh content into the last line
         lastLine = page.innerHTML;
-        blurLastLine();
-        if(isSafari) {
-          lastLine = lastLine + "</br>"
-          allText = allText + "</br>"
-        }
         //blur the last line
-        lastLineBlurredPage.innerHTML = lastLine.substr(0, lastLine.length - 4);
+        lastLineBlurredPage.innerHTML = lastLine;
+        blurLastLine();
+    //    if(isSafari) {
+        //  lastLine = lastLine + "</br>"
+        //  allText = allText + "</br>"
+      //  }
 
-        //look for previous lines
+
+       //look for previous lines
         if(prevLines) {
           blurredPage.innerHTML = prevLines;
-          prevLines = prevLines + lastLine.substr(0, lastLine.length - 4);
+          prevLines = prevLines + lastLine;
         } else {
+          page.innerHTML;
           prevLines = lastLine;
         }
 
@@ -64,7 +66,8 @@ document.getElementById("container").addEventListener("click", function() {
         console.log("prevLines: " + prevLines);
       //  blurredPage.innerHTML = prevLines ;
       if(writingMode) {
-        page.innerHTML = '';
+        page.innerHTML = '<br>';
+        event.preventDefault();
       }
       }
 
@@ -83,7 +86,6 @@ document.getElementById("container").addEventListener("click", function() {
         } else {
          totalBlur = totalBlur + .1;
          lastLineBlurredPage.style.webkitFilter = "blur(" + totalBlur + "px)";
-         console.log(totalBlur);
         }
       }
     }
@@ -109,11 +111,13 @@ document.getElementById("container").addEventListener("click", function() {
         document.getElementById("tools-animate").setAttribute("id", "tools-out");
         document.getElementById("tools-out").setAttribute("id", "tools");
         writingMode = true;
+
         allText = page.innerHTML;
-        prevLines = '';
-        lastLine = '';
+        lastLineBlurredPage.innerHTML = '';
         blurredPage.innerHTML = allText;
-        page.innerHTML = "";
+        page.innerHTML = '<br>';
+        lastLine = '';
+        prevLines = allText;
 
       }
     };
