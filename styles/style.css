@@ -17,7 +17,7 @@ html, body {
   height: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 100px auto 50px;
+  grid-template-rows: 100px auto auto 50px;
   grid-template-areas:
     "h h h h h h h h h h h h"
     "c c c c c c c c c c c c"
@@ -55,9 +55,20 @@ header > h2 {
 
 content {
   grid-area: c;
+  display: inline;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+
+}
+
+#button-row {
+  width: 100%;
   display: flex;
   justify-content: center;
 }
+
 
 footer {
   grid-area: f;
